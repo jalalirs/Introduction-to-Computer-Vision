@@ -115,3 +115,15 @@ venv.bak/
 dmypy.json
 
 L2/.ipynb_checkpoints/L2-checkpoint.ipynb
+
+opencv/cvpython/bin/python
+
+opencv/cvpython/bin/python3
+
+opencv/cvpython/bin/python3.7
+
+opencv/cvpython/include/python3.7m
+
+opencv/opencv_contrib/
+
+opencv/opencv/
