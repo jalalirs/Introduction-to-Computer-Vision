@@ -129,3 +129,11 @@ opencv/opencv_contrib/
 opencv/opencv/
 
 L3/disparity-with-graph-cuts/
+
+L4/test.py
+
+L4/imgs/house.png
+
+L4/finalimage.png
+
+L4/corners.txt
