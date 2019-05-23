@@ -14,7 +14,7 @@ In this project, you will find notes, screenshots and python implementations of 
 ## Content
 
 - 1A-L1: Introduction
-- [Images](https://jalalirs.github.io/Introduction-to-Computer-Vision/L2/L2.hml)
+- [Images](https://jalalirs.github.io/Introduction-to-Computer-Vision/L2/L2.html)
 	- 2A-L1 Images as functions
 	- 2A-L2 Filtering
 	- 2A-L3 Linearity and convolution
@@ -27,7 +27,7 @@ In this project, you will find notes, screenshots and python implementations of 
 	- 2C-L1 Fourier transform
 	- 2C-L2 Convolution in frequency domain
 	- 2C-L3 Aliasing
-- [Camera & Calibration](https://jalalirs.github.io/Introduction-to-Computer-Vision/L3/L3.hml)
+- [Camera & Calibration](https://jalalirs.github.io/Introduction-to-Computer-Vision/L3/L3.html)
 	- 3A-L1 Cameras and images
 	- 3A-L2 Perspective imaging
 	- 3B-L1 Stereo geometry
@@ -41,7 +41,7 @@ In this project, you will find notes, screenshots and python implementations of 
 	- 3D-L3 Projective geometry
 	- 3D-L4 Essential matrix
 	- 3D-L5 Fundamental matrix
-- [Visual Feature](https://jalalirs.github.io/Introduction-to-Computer-Vision/L4/L4.hml)
+- [Visual Feature](https://jalalirs.github.io/Introduction-to-Computer-Vision/L4/L4.html)
 	- 4A-L1 Introduction to "features"
 	- 4A-L2 Finding corners
 	- 4A-L3 Scale invariance
@@ -49,17 +49,17 @@ In this project, you will find notes, screenshots and python implementations of 
 	- 4B-L2 Matching feature points (a little)
 	- 4C-L1 Robust error functions
 	- 4C-L2 RANSAC
-- [Photometry](https://jalalirs.github.io/Introduction-to-Computer-Vision/L5/L5.hml)
+- [Photometry](https://jalalirs.github.io/Introduction-to-Computer-Vision/L5/L5.html)
 	- 5A-L1 Photometry
 	- 5B-L1 Lightness
 	- 5C-L1 Shape from shading
-- [Motion](https://jalalirs.github.io/Introduction-to-Computer-Vision/L6/L6.hml)
+- [Motion](https://jalalirs.github.io/Introduction-to-Computer-Vision/L6/L6.html)
 	- 6A-L1 Introduction to motion
 	- 6B-L1 Dense flow: Brightness constraint
 	- 6B-L2 Dense flow: Lucas and Kanade
 	- 6B-L3 Hierarchical LK
 	- 6B-L4 Motion models
-- [Tracking](https://jalalirs.github.io/Introduction-to-Computer-Vision/L7/L7.hml)
+- [Tracking](https://jalalirs.github.io/Introduction-to-Computer-Vision/L7/L7.html)
 	- 7A-L1 Introduction to tracking
 	- 7B-L1 Tracking as inference
 	- 7B-L2 The Kalman filter
@@ -68,7 +68,7 @@ In this project, you will find notes, screenshots and python implementations of 
 	- 7C-L3 Particle filters for localization
 	- 7C-L4 Particle filters for real
 	- 7D-L1 Tracking considerations
-- [Recognition](https://jalalirs.github.io/Introduction-to-Computer-Vision/L8/L8.hml)
+- [Recognition](https://jalalirs.github.io/Introduction-to-Computer-Vision/L8/L8.html)
 	- 8A-L1 Introduction to recognition
 	- 8B-L1 Classification: Generative models
 	- 8B-L2 Principle Component Analysis
@@ -80,14 +80,14 @@ In this project, you will find notes, screenshots and python implementations of 
 	- 8D-L1 Introduction to video analysis
 	- 8D-L2 Activity recognition
 	- 8D-L3 Hidden Markov Models
-- [Colors](https://jalalirs.github.io/Introduction-to-Computer-Vision/L9/L9.hml)
+- [Colors](https://jalalirs.github.io/Introduction-to-Computer-Vision/L9/L9.html)
 	- 9A-L1 Color spaces
 	- 9A-L2 Segmentation
 	- 9A-L3 Mean shift segmentation
 	- 9A-L4 Segmentation by graph partitioning
 	- 9B-L1 Binary morphology
 	- 9C-L1 3D perception
-- [Human Vision System](https://jalalirs.github.io/Introduction-to-Computer-Vision/L10/L10.hml)
+- [Human Vision System](https://jalalirs.github.io/Introduction-to-Computer-Vision/L10/L10.html)
 	- 10A-L1 The retina
 	- 10B-L1 Vision in the brain
 - We're Done!
