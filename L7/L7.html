@@ -12101,9 +12101,9 @@ div#notebook {
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <h2 id="Steps-of-tracking">Steps of tracking<a class="anchor-link" href="#Steps-of-tracking">&#182;</a></h2><p><strong>Prediction:</strong> What is the next state of the object given past measurements?</p>
-<p>$$P(X_t|Y_0 = y_0,...,Y_{t-1} = y_{t-1})$$</p>
+<p>$$\color{blue}{P(X_t|Y_0 = y_0,...,Y_{t-1} = y_{t-1})}$$</p>
 <p><strong>Correction:</strong> Compute an updated estimate of the state from prediction and measutrements</p>
-<p>$$P(X_t|Y_0 = y_0,...,Y_{t-1}, Y_t = y_t )$$</p>
+<p>$$\color{blue}{P(X_t|Y_0 = y_0,...,Y_{t-1}, Y_t = y_t )}$$</p>
 <p><em>Tracking: The process of propagating the</em> <strong><em>Posterior</em></strong> <em>distribution of state given measurements across time</em></p>
 <h3 id="Quiz">Quiz<a class="anchor-link" href="#Quiz">&#182;</a></h3><p><br /></p>
 <figure>
@@ -12120,13 +12120,13 @@ div#notebook {
 <h2 id="Simplifying-Assumptions">Simplifying Assumptions<a class="anchor-link" href="#Simplifying-Assumptions">&#182;</a></h2><ol>
 <li>Only the immediate past matters</li>
 </ol>
-<p>$$P(X_t|X_0,...,X_{t-1}) = P(X_t|X_{t-1})$$</p>
-<p>$P(X_t|X_{t-1})$:<font color='red'> dynamics model</font></p>
+<p>$$\color{blue}{P(X_t|X_0,...,X_{t-1}) = P(X_t|X_{t-1})}$$</p>
+<p>$\color{blue}{P(X_t|X_{t-1})}$:<font color='red'> dynamics model</font></p>
 <ol>
 <li>Measurements depend only on the current state</li>
 </ol>
-<p>$$P(Y_t|X_0,Y_0,...,X_{t-1},Y_{t-1},X_t) = P(Y_t|X_t)$$</p>
-<p>$P(Y_t|X_t)$:<font color='red'> observation model</font></p>
+<p>$$\color{blue}{P(Y_t|X_0,Y_0,...,X_{t-1},Y_{t-1},X_t) = P(Y_t|X_t)}$$</p>
+<p>$\color{blue}{P(Y_t|X_t)}$:<font color='red'> observation model</font></p>
 <p><br /></p>
 <figure>
 <img src="imgs/L712.png" width=500/>
@@ -12159,11 +12159,11 @@ div#notebook {
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="Prediction">Prediction<a class="anchor-link" href="#Prediction">&#182;</a></h2><p>Given: $P(X_{t-1}|y_0,...,y_{t-1})$<br/>
-Guess: $P(X_{t}|y_0,...,y_{t-1})$<br/></p>
-<p>$$\int P(X_t,X_{t-1}|y_0,...,y_{t-1})dX_{t-1}$$</p>
-<center><font color="green">Law of total probability - Marginalization</font></center><p>$$\int P(X_t,X_{t-1}|y_0,...,y_{t-1}) P(X_{t-1}|y_0,...,y_{t-1})dX_{t-1}$$</p>
-<center><font color="green">Conditioning on $X_{t-1}$ [ recall $P(A,B) = p(A|B)P(B)$]</font></center><p>$$\int P(X_t,X_{t-1})P(X_{t-1}|y_0,...,y_{t-1})dX_{t-1}$$</p>
+<h2 id="Prediction">Prediction<a class="anchor-link" href="#Prediction">&#182;</a></h2><p>Given: $\color{blue}{P(X_{t-1}|y_0,...,y_{t-1})}$<br/>
+Guess: $\color{blue}{P(X_{t}|y_0,...,y_{t-1})}$<br/></p>
+<p>$$\color{blue}{\int P(X_t,X_{t-1}|y_0,...,y_{t-1})dX_{t-1}}$$</p>
+<center><font color="green">Law of total probability - Marginalization</font></center><p>$$\color{blue}{\int P(X_t,X_{t-1}|y_0,...,y_{t-1}) P(X_{t-1}|y_0,...,y_{t-1})dX_{t-1}}$$</p>
+<center><font color="green">Conditioning on $X_{t-1}$ [ recall $P(A,B) = p(A|B)P(B)$]</font></center><p>$$\color{blue}{\int P(X_t,X_{t-1})P(X_{t-1}|y_0,...,y_{t-1})dX_{t-1}}$$</p>
 <center><font color="green">Independence assumption</font></center>
 </div>
 </div>
@@ -12173,11 +12173,11 @@ Guess: $P(X_{t}|y_0,...,y_{t-1})$<br/></p>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <h2 id="Correction">Correction<a class="anchor-link" href="#Correction">&#182;</a></h2><p>Given predicted value <font color="blue">**$P(X_t|y_0,...,y_{t-1})$**</font> and <font color="blue">**$y_t$**</font> compute <font color="blue">**$P(X_t|y_0,...,y_t)$**</font></p>
-<p>$$= \frac{P(y_t|X_t,y_0,...,y_{t-1})P(X_t|y_0,...,y_{t-1})}{P(y_t|y_0,...,y_{t-1})}$$</p>
+<p>$$\color{blue}{= \frac{P(y_t|X_t,y_0,...,y_{t-1})P(X_t|y_0,...,y_{t-1})}{P(y_t|y_0,...,y_{t-1})}}$$</p>
 <p><br/></p>
-<center><font color="green">Bayes rule: $P(A|B) = \frac{P(B|A)P(A)}{P(B)}$</font></center><p>$$= \frac{P(y_t|X_t)P(X_t|y_0,...,y_{t-1})}{P(y_t|y_0,...,y_{t-1})}$$
+<center><font color="green">Bayes rule: $P(A|B) = \frac{P(B|A)P(A)}{P(B)}$</font></center><p>$$\color{blue}{= \frac{P(y_t|X_t)P(X_t|y_0,...,y_{t-1})}{P(y_t|y_0,...,y_{t-1})}}$$
 <br/></p>
-<center><font color="green">Independence assumption (observation $y_t$ depends only on state $X_t$)</font></center><p>$$P(X_t| y_0,...,y_{t-1},y_t)= \frac{P(y_t|X_t)P(X_t|y_0,...,y_{t-1})}{\int P(y_t|X_t)P(X_t|y_0,...,y_{t-1})dX_t}$$
+<center><font color="green">Independence assumption (observation $y_t$ depends only on state $X_t$)</font></center><p>$$\color{blue}{P(X_t| y_0,...,y_{t-1},y_t)= \frac{P(y_t|X_t)P(X_t|y_0,...,y_{t-1})}{\int P(y_t|X_t)P(X_t|y_0,...,y_{t-1})dX_t}}$$
 <br/></p>
 <center><font color="green">Conditioning on $X_t$</font></center>
 </div>
@@ -12196,9 +12196,9 @@ Guess: $P(X_{t}|y_0,...,y_{t-1})$<br/></p>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <h2 id="Linear--Models">Linear  Models<a class="anchor-link" href="#Linear--Models">&#182;</a></h2><h3 id="Linear-Dynamics-Model">Linear Dynamics Model<a class="anchor-link" href="#Linear-Dynamics-Model">&#182;</a></h3><p>Dynamics model: State undergoes linear transformation plus Gaussian noise</p>
-<p>$$X_t\sim N\left (D_tx_{t-1},\sum_{d_t}\right )$$</p>
+<p>$$\color{blue}{X_t\sim N\left (D_tx_{t-1},\sum_{d_t}\right )}$$</p>
 <h3 id="Linear-Measurement-Model">Linear Measurement Model<a class="anchor-link" href="#Linear-Measurement-Model">&#182;</a></h3><p>Observation model: Measurement is linearly transformed state plus Gaussian noise</p>
-<p>$$y_t\sim N\left (M_tx_{t},\sum_{m_t}\right )$$</p>
+<p>$$\color{blue}{y_t\sim N\left (M_tx_{t},\sum_{m_t}\right )}$$</p>
 
 </div>
 </div>
@@ -12208,12 +12208,12 @@ Guess: $P(X_{t}|y_0,...,y_{t-1})$<br/></p>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <h2 id="Constant-Velocity-1D-Example">Constant Velocity 1D Example<a class="anchor-link" href="#Constant-Velocity-1D-Example">&#182;</a></h2><h3 id="Example:-Constant-velocity-(1D)">Example: Constant velocity (1D)<a class="anchor-link" href="#Example:-Constant-velocity-(1D)">&#182;</a></h3><p>State vector is position and velocity</p>
-<p>$$x_t = \begin{bmatrix}p_t\\v_t\end{bmatrix}$$</p>
-<p>$$p_t = p_{t-1} + (\Delta t)v_{t-1} + \epsilon$$</p>
-<p>$$v_t = v_{t-1} + \xi$$</p>
-<p>$$x = D_tx_{t-1} + noise = \begin{bmatrix}1&amp;\Delta t\\0&amp;1\end{bmatrix}\begin{bmatrix}p_{t-1}\\v_{t-1}\end{bmatrix} + noise $$</p>
+<p>$$\color{blue}{x_t = \begin{bmatrix}p_t\\v_t\end{bmatrix}}$$</p>
+<p>$$\color{blue}{p_t = p_{t-1} + (\Delta t)v_{t-1} + \epsilon}$$</p>
+<p>$$\color{blue}{v_t = v_{t-1} + \xi}$$</p>
+<p>$$\color{blue}{x = D_tx_{t-1} + noise = \begin{bmatrix}1&amp;\Delta t\\0&amp;1\end{bmatrix}\begin{bmatrix}p_{t-1}\\v_{t-1}\end{bmatrix} + noise }$$</p>
 <p>Measurement is position only</p>
-<p>$$y_t = Mx_t + noise = \begin{bmatrix}1&amp;0\end{bmatrix}\begin{bmatrix}p_t\\v_t\end{bmatrix} + noise$$</p>
+<p>$$\color{blue}{y_t = Mx_t + noise = \begin{bmatrix}1&amp;0\end{bmatrix}\begin{bmatrix}p_t\\v_t\end{bmatrix} + noise}$$</p>
 
 </div>
 </div>
@@ -12223,13 +12223,13 @@ Guess: $P(X_{t}|y_0,...,y_{t-1})$<br/></p>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <h2 id="Constant-Acceleration-1D-Example">Constant Acceleration 1D Example<a class="anchor-link" href="#Constant-Acceleration-1D-Example">&#182;</a></h2><h3 id="Example:-Constant-acceleration-(1D)">Example: Constant acceleration (1D)<a class="anchor-link" href="#Example:-Constant-acceleration-(1D)">&#182;</a></h3><p>State vector is position, velocity &amp; acceleration</p>
-<p>$$x_t = \begin{bmatrix}p_t\\v_t\\a_t\end{bmatrix} $$</p>
-<p>$$p_t = p_{t-1} + (\Delta t)v_{t-1} + \epsilon$$</p>
-<p>$$v_t = v_{t-1} + (\Delta t)a_{t-1} +\xi$$</p>
-<p>$$a_t = a_{t-1} + \zeta$$</p>
-<p>$$x = D_tx_{t-1} + noise = \begin{bmatrix}1&amp;\Delta t &amp; 0\\0&amp;1 &amp;\Delta t\\0&amp;0&amp;1\end{bmatrix}\begin{bmatrix}p_{t-1}\\v_{t-1}\\a_{t-1}\end{bmatrix} + noise $$</p>
+<p>$$x\color{blue}{_t = \begin{bmatrix}p_t\\v_t\\a_t\end{bmatrix} }$$</p>
+<p>$$\color{blue}{p_t = p_{t-1} + (\Delta t)v_{t-1} + \epsilon}$$</p>
+<p>$$\color{blue}{v_t = v_{t-1} + (\Delta t)a_{t-1} +\xi}$$</p>
+<p>$$\color{blue}{a_t = a_{t-1} + \zeta}$$</p>
+<p>$$\color{blue}{x = D_tx_{t-1} + noise = \begin{bmatrix}1&amp;\Delta t &amp; 0\\0&amp;1 &amp;\Delta t\\0&amp;0&amp;1\end{bmatrix}\begin{bmatrix}p_{t-1}\\v_{t-1}\\a_{t-1}\end{bmatrix} + noise }$$</p>
 <p>Measurement is position only</p>
-<p>$$y_t = Mx_t + noise = \begin{bmatrix}1&amp;0&amp;0\end{bmatrix}\begin{bmatrix}p_t\\v_t\\a_t\end{bmatrix} + noise$$</p>
+<p>$$\color{blue}{y_t = Mx_t + noise = \begin{bmatrix}1&amp;0&amp;0\end{bmatrix}\begin{bmatrix}p_t\\v_t\\a_t\end{bmatrix} + noise}$$</p>
 
 </div>
 </div>
@@ -12270,15 +12270,15 @@ Mean and std. dev. of predicted state: <font color="blue">$\mu_t^+,
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <h2 id="1D-Kalman-Filter-Prediction">1D Kalman Filter Prediction<a class="anchor-link" href="#1D-Kalman-Filter-Prediction">&#182;</a></h2><p>Linear dynamics model defines predicted state evolution, with noise</p>
-<p>$$X_t\sim N\left (dx_{t-1},\sigma^2_d\right )$$</p>
+<p>$$\color{blue}{X_t\sim N\left (dx_{t-1},\sigma^2_d\right )}$$</p>
 <p>Want to estimate distribution for next predicted state</p>
-<p>$$P(X_t|y_0,...,y_{t-1}) = \int P(X_t|X_{t-1})P(X_{t-1}|y_0,...,y_{t-1})dX_{t-1}$$</p>
+<p>$$\color{blue}{P(X_t|y_0,...,y_{t-1}) = \int P(X_t|X_{t-1})P(X_{t-1}|y_0,...,y_{t-1})dX_{t-1}}$$</p>
 <p>The distribution for next predicted state is also Gaussian</p>
-<p>$$P(X_t|y_0,...,y_{t-1}) = N\left (\mu^-_t,(\sigma_t^-)^2\right )$$</p>
+<p>$$\color{blue}{P(X_t|y_0,...,y_{t-1}) = N\left (\mu^-_t,(\sigma_t^-)^2\right )}$$</p>
 <p>Update the mean:</p>
-<p>$$\mu^-_t = d\mu^+_{t-1}$$</p>
+<p>$$\color{blue}{\mu^-_t = d\mu^+_{t-1}}$$</p>
 <p>Update the variance:</p>
-<p>$$(\sigma^-_t)^2 = \sigma_d^2+(d\sigma^+_{t-1})^2 $$</p>
+<p>$$\color{blue}{(\sigma^-_t)^2 = \sigma_d^2+(d\sigma^+_{t-1})^2 }$$</p>
 
 </div>
 </div>
@@ -12288,17 +12288,17 @@ Mean and std. dev. of predicted state: <font color="blue">$\mu_t^+,
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <h2 id="1D-Kaman-Filter-Correction">1D Kaman Filter Correction<a class="anchor-link" href="#1D-Kaman-Filter-Correction">&#182;</a></h2><p>Mapping of state to measurements:</p>
-<p>$$Y_t\sim N\left (mx_t,\sigma^2_m\right )$$</p>
+<p>$$\color{blue}{Y_t\sim N\left (mx_t,\sigma^2_m\right )}$$</p>
 <p>Predicted state:</p>
-<p>$$P(X_t|y_0,...,y_{t-1}) = N\left (\mu^-_t,(\sigma_t^-)^2\right )$$</p>
+<p>$$\color{blue}{P(X_t|y_0,...,y_{t-1}) = N\left (\mu^-_t,(\sigma_t^-)^2\right )}$$</p>
 <p>Want to estimate corrected distribution</p>
-<p>$$P(X_t| y_0,...,y_{t-1},y_t)= \frac{P(y_t|X_t)P(X_t|y_0,...,y_{t-1})}{\int P(y_t|X_t)P(X_t|y_0,...,y_{t-1})dX_t}$$</p>
+<p>$$\color{blue}{P(X_t| y_0,...,y_{t-1},y_t)= \frac{P(y_t|X_t)P(X_t|y_0,...,y_{t-1})}{\int P(y_t|X_t)P(X_t|y_0,...,y_{t-1})dX_t}}$$</p>
 <p><strong>Kalman</strong>: With linear, Gaussian dynamics and measutrements, the corrected distribution to be:</p>
-<p>$$O(X_t|y_0,...,y_t) \equiv N\left (\mu^+_t,(\sigma_t^+)^2\right )$$</p>
+<p>$$\color{blue}{O(X_t|y_0,...,y_t) \equiv N\left (\mu^+_t,(\sigma_t^+)^2\right )}$$</p>
 <p>Update the mean:</p>
-<p>$$\mu^+_t = \frac{\mu^-_t\sigma_m^2 + my_t(\sigma_t^-)^2}{\sigma_m^2 + m^2(\sigma_t^-)^2}$$</p>
+<p>$$\color{blue}{\mu^+_t = \frac{\mu^-_t\sigma_m^2 + my_t(\sigma_t^-)^2}{\sigma_m^2 + m^2(\sigma_t^-)^2}}$$</p>
 <p>Update the variance:</p>
-<p>$$(\sigma^+_t)^2 = \frac{\sigma_m^2(\sigma_t^-)^2}{\sigma_m^2 + m^2(\sigma_t^-)^2}$$</p>
+<p>$$\color{blue}{(\sigma^+_t)^2 = \frac{\sigma_m^2(\sigma_t^-)^2}{\sigma_m^2 + m^2(\sigma_t^-)^2}}$$</p>
 
 </div>
 </div>
@@ -12308,14 +12308,14 @@ Mean and std. dev. of predicted state: <font color="blue">$\mu_t^+,
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <h2 id="1D-Kalman-Filter-Intuition">1D Kalman Filter Intuition<a class="anchor-link" href="#1D-Kalman-Filter-Intuition">&#182;</a></h2><p>From:</p>
-<p>$$\mu^+_t = \frac{\mu^-_t\sigma_m^2 + my_t(\sigma_t^-)^2}{\sigma_m^2 + m^2(\sigma_t^-)^2}$$</p>
+<p>$$\color{blue}{\mu^+_t = \frac{\mu^-_t\sigma_m^2 + my_t(\sigma_t^-)^2}{\sigma_m^2 + m^2(\sigma_t^-)^2}}$$</p>
 <p>Dividing throughout by <font color="blue">**$m^2$**</font>...</p>
-<p>$$\mu^+_t = \frac{\frac{\mu^-_t\sigma_m^2}{m^2} + \frac{y_t}{m}(\sigma_t^-)^2}{\frac{\sigma_m^2}{m^2} + (\sigma_t^-)^2}$$</p>
+<p>$$\color{blue}{\mu^+_t = \frac{\frac{\mu^-_t\sigma_m^2}{m^2} + \frac{y_t}{m}(\sigma_t^-)^2}{\frac{\sigma_m^2}{m^2} + (\sigma_t^-)^2}}$$</p>
 <p>What is this?</p>
-<p>$\frac{y_t}{m}$ is the measurement guess of $x$<br/></p>
-<p>$\frac{\mu^-_t\sigma_m^2}{m^2}$ is the prediction of $x$<br/></p>
-<p>$\frac{\sigma_m^2}{m^2}$ is the variance of$x$ computed from the measurement<br/></p>
-<p>$(\sigma_t^-)^2$ is the variance of prediction<br/></p>
+<p>$\color{blue}{\frac{y_t}{m}}$ is the measurement guess of $\color{blue}{x}$<br/></p>
+<p>$\color{blue}{\frac{\mu^-_t\sigma_m^2}{m^2}}$ is the prediction of $\color{blue}{x}$<br/></p>
+<p>$\color{blue}{\frac{\sigma_m^2}{m^2}}$ is the variance of$\color{blue}{x}$ computed from the measurement<br/></p>
+<p>$\color{blue}{(\sigma_t^-)^2}$ is the variance of prediction<br/></p>
 <ul>
 <li>The weighted average of prediction and measurement based on variances!</li>
 </ul>
@@ -12327,12 +12327,12 @@ Mean and std. dev. of predicted state: <font color="blue">$\mu_t^+,
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="Prediction-vs.-Correction">Prediction vs. Correction<a class="anchor-link" href="#Prediction-vs.-Correction">&#182;</a></h2><p>What if there is no prediction uncertainty? ($\sigma^-_t = 0$)</p>
-<p>$$\mu^+_t = \mu^-_t$$</p>
-<p>$$(\sigma^+_t)^2 = 0$$</p>
-<center><font color="red">The measurement is ignored!</font></center><p>What if there is no measurement uncertainty? ($\sigma_m = 0$)</p>
-<p>$$\mu^+_t = \frac{y_t}{m}$$</p>
-<p>$$(\sigma^+_t)^2 = 0$$</p>
+<h2 id="Prediction-vs.-Correction">Prediction vs. Correction<a class="anchor-link" href="#Prediction-vs.-Correction">&#182;</a></h2><p>What if there is no prediction uncertainty? ($\color{blue}{\sigma^-_t = 0}$)</p>
+<p>$$\color{blue}{\mu^+_t = \mu^-_t}$$</p>
+<p>$$\color{blue}{(\sigma^+_t)^2 = 0}$$</p>
+<center><font color="red">The measurement is ignored!</font></center><p>What if there is no measurement uncertainty? ($\color{blue}{\sigma_m = 0}$)</p>
+<p>$$\color{blue}{\mu^+_t = \frac{y_t}{m}}$$</p>
+<p>$$\color{blue}{(\sigma^+_t)^2 = 0}$$</p>
 <center><font color="red">The prediction is ignored!</font></center>
 </div>
 </div>
@@ -12342,12 +12342,12 @@ Mean and std. dev. of predicted state: <font color="blue">$\mu_t^+,
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <h2 id="1D-Kalman-Filter:-Intuition">1D Kalman Filter: Intuition<a class="anchor-link" href="#1D-Kalman-Filter:-Intuition">&#182;</a></h2><p>Also:</p>
-<p>$$\mu^+_t = \frac{\frac{\mu^-_t\sigma_m^2}{m^2} + \frac{y_t}{m}(\sigma_t^-)^2}{\frac{\sigma_m^2}{m^2} + (\sigma_t^-)^2}$$</p>
-<p>$$\mu^+_t = \frac{a\mu^-_t + b\frac{y_t}{m}}{a+b} = \frac{(a+b)\mu^-_t + b(\frac{y_t}{m} - \mu^-_t)}{a+b}$$</p>
-<p>$$\mu^+_t = \mu_t^- + \frac{b(\frac{y_t}{m}-\mu^-_t)}{a+b} = \mu^-_t + k(\frac{y_t}{m}-\mu^-_t)$$</p>
-<p>$\mu^-_t$ is the predicted<br/></p>
-<p>$(\frac{y_t}{m}-\mu^-_t)$ is the residual<br/></p>
-<p>$k$ is the Kalman Gain<br/></p>
+<p>$$\color{blue}{\mu^+_t = \frac{\frac{\mu^-_t\sigma_m^2}{m^2} + \frac{y_t}{m}(\sigma_t^-)^2}{\frac{\sigma_m^2}{m^2} + (\sigma_t^-)^2}}$$</p>
+<p>$$\color{blue}{\mu^+_t = \frac{a\mu^-_t + b\frac{y_t}{m}}{a+b} = \frac{(a+b)\mu^-_t + b(\frac{y_t}{m} - \mu^-_t)}{a+b}}$$</p>
+<p>$$\color{blue}{\mu^+_t = \mu_t^- + \frac{b(\frac{y_t}{m}-\mu^-_t)}{a+b} = \mu^-_t + k(\frac{y_t}{m}-\mu^-_t)}$$</p>
+<p>$\color{blue}{\mu^-_t}$ is the predicted<br/></p>
+<p>$\color{blue}{(\frac{y_t}{m}-\mu^-_t)}$ is the residual<br/></p>
+<p>$\color{blue}{k}$ is the Kalman Gain<br/></p>
 <h3 id="Recall:-constant-velocity-model-example">Recall: constant velocity model example<a class="anchor-link" href="#Recall:-constant-velocity-model-example">&#182;</a></h3><p><br /></p>
 <figure>
 <img src="imgs/L710.png" width=300/>
@@ -12483,12 +12483,12 @@ Mean and std. dev. of predicted state: <font color="blue">$\mu_t^+,
 <div class="text_cell_render border-box-sizing rendered_html">
 <h2 id="N-dimensional">N-dimensional<a class="anchor-link" href="#N-dimensional">&#182;</a></h2><p>In the two dimensional space:</p>
 <p><strong>Predict</strong></p>
-<p>$$X_t^- = D_tx_{t-1}^+$$</p>
-<p>$$\Sigma^-_t = D_t\Sigma^+_{t-1}D^T_t + \Sigma_{d_t}$$</p>
+<p>$$\color{blue}{X_t^- = D_tx_{t-1}^+}$$</p>
+<p>$$\color{blue}{\Sigma^-_t = D_t\Sigma^+_{t-1}D^T_t + \Sigma_{d_t}}$$</p>
 <p><strong>Correct</strong></p>
-<p>$$K_t = \Sigma^-_tM^T_t\left (M_t\Sigma^-_tM^T_t+\Sigma_{m_t}\right )^{-1}$$</p>
-<p>$$x^+_t= x^-_t + K_t(y_t - M_tx_t^-)$$</p>
-<p>$$\Sigma^+_t = (I-K_tM_t)\Sigma^-_t$$</p>
+<p>$$\color{blue}{K_t = \Sigma^-_tM^T_t\left (M_t\Sigma^-_tM^T_t+\Sigma_{m_t}\right )^{-1}}$$</p>
+<p>$$\color{blue}{x^+_t= x^-_t + K_t(y_t - M_tx_t^-)}$$</p>
+<p>$$\color{blue}{\Sigma^+_t = (I-K_tM_t)\Sigma^-_t}$$</p>
 <p>The Kalman Gain Matrix <strong>$K_t$</strong> has less weight on residual as a priori estimate error covariance approaches zero. On the other hand, if my measurement coveriance approaches zero, more wheight on residual.</p>
 
 </div>
@@ -12718,14 +12718,14 @@ Mean and std. dev. of predicted state: <font color="blue">$\mu_t^+,
 <div class="text_cell_render border-box-sizing rendered_html">
 <h2 id="Particle-Filters-Basic-Idea">Particle Filters Basic Idea<a class="anchor-link" href="#Particle-Filters-Basic-Idea">&#182;</a></h2><p>In particle filtering, the measurements are written as $z_t$ and not as $y_t$</p>
 <ul>
-<li>So we'll start seeing <em>z</em>'s</li>
+<li>So we'll start seeing <em>$\color{blue}{z}$</em>'s</li>
 </ul>
 <p><br /></p>
 <figure>
 <img src="imgs/L723.png" width=500/>
 <center><figcaption>Fig.13</figcaption></center>
 </figure><p>Density is represented by both <strong>where</strong> the particles are and their <strong>weight</strong>.</p>
-<p>$p(x=x_0)$ is now probability of drawing an x with value (really close to) $x_0$</p>
+<p>$\color{blue}{p(x=x_0)}$ is now probability of drawing an x with value (really close to) $x_0$</p>
 <p>Goal: <font color="blue">$p(x_t\in X_t) \approx p(x_t|z_{\{1...t\}})$</font> with equality when <font color="blue">$n \to \infty$</font></p>
 
 </div>
@@ -12762,18 +12762,18 @@ Mean and std. dev. of predicted state: <font color="blue">$\mu_t^+,
 <li>Prior probability of the system state <strong>p(x)</strong></li>
 <li>Action (dynamical system) model:</li>
 </ol>
-<p>$$p(x_t|u_{t-1}, x_{t-1})$$</p>
+<p>$$\color{blue}{p(x_t|u_{t-1}, x_{t-1})}$$</p>
 <ol>
-<li>Sensor model (likelihood) $p(z|x)$</li>
-<li>Stream of observations <strong>$z$</strong> and action data <strong>$u$</strong></li>
+<li>Sensor model (likelihood) $\color{blue}{p(z|x)}$</li>
+<li>Stream of observations <strong>$\color{blue}{z}$</strong> and action data <strong>$\color{blue}{u}$</strong></li>
 </ol>
-<p>$$ data_t = \{u_1,z_2,...,u_{t-1},z_t\}$$</p>
+<p>$$\color{blue}{ data_t = \{u_1,z_2,...,u_{t-1},z_t\}}$$</p>
 <p><font color="green"><strong>Wanted</strong></font></p>
 <ul>
-<li>Estimate of the state $X$ at time $t$</li>
+<li>Estimate of the state $\color{blue}{X}$ at time $\color{blue}{t}$</li>
 <li>The posterior of the state is also called <font color="green"><strong>belief</strong></font>:</li>
 </ul>
-<p>$$Bel(x_t) = P(x_t| u_1,z_2,...,u_{t-1},z_t)$$</p>
+<p>$$\color{blue}{Bel(x_t) = P(x_t| u_1,z_2,...,u_{t-1},z_t)}$$</p>
 
 </div>
 </div>
@@ -12799,8 +12799,8 @@ Mean and std. dev. of predicted state: <font color="blue">$\mu_t^+,
 <figure>
 <img src="imgs/L726.png" width=500/>
 <center><figcaption>Fig.16</figcaption></center>
-</figure><p>$$p(z_t|x_{0:t}, z_{1:t-1}, u_{1:t}) = p(z_t|x_t)$$
-$$p(x_t|x_{1:t-1},z_{1:t-1},u_{1:t}) = p(x_t|x_{t-1},u_t)$$</p>
+</figure><p>$$\color{blue}{p(z_t|x_{0:t}, z_{1:t-1}, u_{1:t}) = p(z_t|x_t)}$$
+$$\color{blue}{p(x_t|x_{1:t-1},z_{1:t-1},u_{1:t}) = p(x_t|x_{t-1},u_t)}$$</p>
 
 </div>
 </div>
@@ -12809,10 +12809,10 @@ $$p(x_t|x_{1:t-1},z_{1:t-1},u_{1:t}) = p(x_t|x_{t-1},u_t)$$</p>
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="Bayes-Rule-Reminder">Bayes Rule Reminder<a class="anchor-link" href="#Bayes-Rule-Reminder">&#182;</a></h2><p>$$p(x|z) = \frac{p(z|x)p(x)}{p(z)}$$</p>
-<p>$$= \eta p(z|x)p(x)$$</p>
-<p>$$\propto p(z|x)p(x)$$</p>
-<p>$p(x)$ is prior before measurement</p>
+<h2 id="Bayes-Rule-Reminder">Bayes Rule Reminder<a class="anchor-link" href="#Bayes-Rule-Reminder">&#182;</a></h2><p>$$\color{blue}{p(x|z) = \frac{p(z|x)p(x)}{p(z)}}$$</p>
+<p>$$\color{blue}{= \eta p(z|x)p(x)}$$</p>
+<p>$$\color{blue}{\propto p(z|x)p(x)}$$</p>
+<p>$\color{blue}{p(x)}$ is prior before measurement</p>
 
 </div>
 </div>
@@ -12824,16 +12824,16 @@ $$p(x_t|x_{1:t-1},z_{1:t-1},u_{1:t}) = p(x_t|x_{t-1},u_t)$$</p>
 <h2 id="Bayes-Filter">Bayes Filter<a class="anchor-link" href="#Bayes-Filter">&#182;</a></h2><p>z = observation <br/>
 u = action <br/>
 x = state <br/></p>
-<p>$$Bel(x_t) = P(x_t| u_1,z_2,...,u_{t-1},z_t)$$</p>
+<p>$$\color{blue}{Bel(x_t) = P(x_t| u_1,z_2,...,u_{t-1},z_t)}$$</p>
 <p>Bayes = 
-$$\eta P(z_t|x_t,u_1,z_2,...,u_{t-1})  P(x_t|u_1,z_2,...,u_{t-1})$$</p>
-<p>$$\eta \times Likelihood \times Prior$$</p>
+$$\color{blue}{\eta P(z_t|x_t,u_1,z_2,...,u_{t-1})  P(x_t|u_1,z_2,...,u_{t-1})}$$</p>
+<p>$$\color{blue}{\eta \times Likelihood \times Prior}$$</p>
 <p>Sensor Ind = 
-$$\eta P(z_t|x_t)P(x_t|u_1,z_2,...,u_{t-1})$$</p>
+$$\color{blue}{\eta P(z_t|x_t)P(x_t|u_1,z_2,...,u_{t-1})}$$</p>
 <p>Total Probability of "Prior"= 
-$$\eta P(z_t|x_t)\int P(x_t|u_1,z_2,...,u_{t-1},x_{t-1})\cdot P(x_{t-1}|u_1,z_2,...,u_{t-1})dx_{t-1}$$</p>
+$$\color{blue}{\eta P(z_t|x_t)\int P(x_t|u_1,z_2,...,u_{t-1},x_{t-1})\cdot P(x_{t-1}|u_1,z_2,...,u_{t-1})dx_{t-1}}$$</p>
 <p>Markov = 
-$$\eta P(z_t|x_t)\int P(x_t|u_{t-1},x_{t-1})\cdot P(x_{t-1}|u_1,z_2,...,u_{t-1})dx_{t-1}$$</p>
+$$\color{blue}{\eta P(z_t|x_t)\int P(x_t|u_{t-1},x_{t-1})\cdot P(x_{t-1}|u_1,z_2,...,u_{t-1})dx_{t-1}}$$</p>
 <p><font color="blue">$$Bel(x_t) = \eta P(z_t|x_t)\int P(x_t| u_{t-1},x_{t-1})Bel(x_{t-1})dx_{t-1}$$</font></p>
 <p><font color="blue">$P(x_t| u_{t-1},x_{t-1})Bel(x_{t-1})$</font>: Prediction before taking measurement</p>
 
@@ -13109,15 +13109,15 @@ $$\eta P(z_t|x_t)\int P(x_t|u_{t-1},x_{t-1})\cdot P(x_{t-1}|u_1,z_2,...,u_{t-1})
 </ul>
 <h3 id="Remember,-Bayse-Filters:-Framework">Remember, Bayse Filters: Framework<a class="anchor-link" href="#Remember,-Bayse-Filters:-Framework">&#182;</a></h3><p>Given</p>
 <ol>
-<li>Prior probability of the system state <strong>p(x)</strong></li>
+<li>Prior probability of the system state <strong>$\color{blue}{p(x)}$</strong></li>
 <li>Action (dynamical system) model:</li>
 </ol>
-<p>$$p(x_t|u_{t-1}, x_{t-1})$$</p>
+<p>$$\color{blue}{p(x_t|u_{t-1}, x_{t-1})}$$</p>
 <ol>
-<li>Sensor model (likelihood) $p(z|x)$</li>
-<li>Stream of observations <strong>$z$</strong> and action data <strong>$u$</strong></li>
+<li>Sensor model (likelihood) $\color{blue}{p(z|x)}$</li>
+<li>Stream of observations <strong>$z$</strong> and action data <strong>$\color{blue}{u}$</strong></li>
 </ol>
-<p>$$ data_t = \{u_1,z_2,...,u_{t-1},z_t\}$$</p>
+<p>$$\color{blue}{ data_t = \{u_1,z_2,...,u_{t-1},z_t\}}$$</p>
 <h3 id="Proximity-(depth)-Sensor-Model">Proximity (depth) Sensor Model<a class="anchor-link" href="#Proximity-(depth)-Sensor-Model">&#182;</a></h3><p><br /></p>
 <figure>
 <img src="imgs/L735.png" width=500/>
@@ -13748,13 +13748,13 @@ $$\eta P(z_t|x_t)\int P(x_t|u_{t-1},x_{t-1})\cdot P(x_{t-1}|u_1,z_2,...,u_{t-1})
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="Real-Tracking">Real Tracking<a class="anchor-link" href="#Real-Tracking">&#182;</a></h2><h3 id="To-do-real-tracking...">To do real tracking...<a class="anchor-link" href="#To-do-real-tracking...">&#182;</a></h3><p>$$p(x|z) = \frac{p(z|x)p(x)}{p(z)}$$</p>
+<h2 id="Real-Tracking">Real Tracking<a class="anchor-link" href="#Real-Tracking">&#182;</a></h2><h3 id="To-do-real-tracking...">To do real tracking...<a class="anchor-link" href="#To-do-real-tracking...">&#182;</a></h3><p>$$\color{blue}{p(x|z) = \frac{p(z|x)p(x)}{p(z)}}$$</p>
 <p><strong>State dynamics</strong></p>
-<p>$p(x_t|x_{t-1},u_t)$</p>
-<p>$x_t$: state</p>
+<p>$\color{blue}{p(x_t|x_{t-1},u_t)}$</p>
+<p>$\color{blue}{x_t}$: state</p>
 <p><strong>Sensor model</strong></p>
-<p>$p(z|x)$</p>
-<p>$$p(x_t|x_{t-1},u_t) = \eta p(z|x)p(x)$$</p>
+<p>$\color{blue}{p(z|x)}$</p>
+<p>$$\color{blue}{p(x_t|x_{t-1},u_t) = \eta p(z|x)p(x)}$$</p>
 <ul>
 <li><strong><em>x</em></strong> is the "state" - but of what? The object? Some representation of it?</li>
 <li><strong><em>z</em></strong> is the "measurement" - but what measurement? And how does it relate to the state?</li>
@@ -13810,15 +13810,15 @@ $$\eta P(z_t|x_t)\int P(x_t|u_{t-1},x_{t-1})\cdot P(x_{t-1}|u_1,z_2,...,u_{t-1})
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="Particle-Filter-Tracking-Measurement">Particle Filter Tracking Measurement<a class="anchor-link" href="#Particle-Filter-Tracking-Measurement">&#182;</a></h2><p>Suppose $x$ is a contour</p>
+<h2 id="Particle-Filter-Tracking-Measurement">Particle Filter Tracking Measurement<a class="anchor-link" href="#Particle-Filter-Tracking-Measurement">&#182;</a></h2><p>Suppose $\color{blue}{x}$ is a contour</p>
 <ul>
-<li>What is $z$?</li>
+<li>What is $\color{blue}{z}$?</li>
 </ul>
 <p><br /></p>
 <figure>
 <img src="imgs/L744.png" width=200/>
 <center><figcaption>Fig.29</figcaption></center>
-</figure><p>$p(z|x) \propto exp(-\frac{(dist\,to\,edge)^2}{2\sigma^2})$</p>
+</figure><p>$\color{blue}{p(z|x) \propto exp(-\frac{(dist\,to\,edge)^2}{2\sigma^2})}$</p>
 <p>Gaussian of Distance to nearest high-contrast feature summed over the contour</p>
 
 </div>
@@ -14358,13 +14358,13 @@ $$\eta P(z_t|x_t)\int P(x_t|u_{t-1},x_{t-1})\cdot P(x_{t-1}|u_1,z_2,...,u_{t-1})
 <figure>
 <img src="imgs/L751.png" width=500/>
 <center><figcaption>Fig.36</figcaption></center>
-</figure><p>$$\vec{q} = \{q_u\}_{u=1..m}\sum_{u=1}^mq_u = 1$$</p>
-<p>$$\vec{p}(y) = \{p_u(y)\}_{u=1..m}\sum_{u=1}^mp_u = 1$$</p>
-<p>$$Similarity Function: f(y) = f[\vec{q},\vec{p}(y)]$$</p>
+</figure><p>$$\color{blue}{\vec{q} = \{q_u\}_{u=1..m}\sum_{u=1}^mq_u = 1}$$</p>
+<p>$$\color{blue}{\vec{p}(y) = \{p_u(y)\}_{u=1..m}\sum_{u=1}^mp_u = 1}$$</p>
+<p>$$\color{blue}{Similarity Function: f(y) = f[\vec{q},\vec{p}(y)]}$$</p>
 <h3 id="Mean-Shift-Object-Tracking:-Similarity-Function">Mean-Shift Object Tracking: Similarity Function<a class="anchor-link" href="#Mean-Shift-Object-Tracking:-Similarity-Function">&#182;</a></h3><p><strong>The Bhattacharyya Coefficient</strong> 
-$$\vec{q}' = \left (\sqrt{q_1},...,\sqrt{q_m}\right)$$</p>
-<p>$$\vec{p}'(y) = \left (\sqrt{p_1(y)},...,\sqrt{p_m(y)}\right)$$</p>
-<p>$$f(y) = \sum_{u=1}^m\sqrt{p_u(y)q_u}=\frac{p'(y)^Tq'}{||p'(y)||\cdot ||q'||} = cos \theta_y$$</p>
+$$\color{blue}{\vec{q}' = \left (\sqrt{q_1},...,\sqrt{q_m}\right)}$$</p>
+<p>$$\color{blue}{\vec{p}'(y) = \left (\sqrt{p_1(y)},...,\sqrt{p_m(y)}\right)}$$</p>
+<p>$$\color{blue}{f(y) = \sum_{u=1}^m\sqrt{p_u(y)q_u}=\frac{p'(y)^Tq'}{||p'(y)||\cdot ||q'||} = cos \theta_y}$$</p>
 <p><br /></p>
 <figure>
 <img src="imgs/L752.png" width=200/>

@@ -11989,13 +11989,13 @@ div#notebook {
 <li><p>Lambertian BRDF is simply a constant - the <font color="green">albedo</font>:</p>
 </li>
 </ul>
-<p><font color="green">$$f(\theta_i,\varphi_i;\theta_r,\varphi_r) = \rho_d$$</font></p>
+<p>$$\color{blue}{f(\theta_i,\varphi_i;\theta_r,\varphi_r) = \rho_d}$$</p>
 <ul>
 <li>Surface Radiance:</li>
 </ul>
-<p><font color="green">$$L = \rho_d I cos(\theta_i) = \rho_d I (\overrightarrow{n}\cdot \overrightarrow{s})$$</font></p>
+<p>$$\color{blue}{L = \rho_d I cos(\theta_i) = \rho_d I (\overrightarrow{n}\cdot \overrightarrow{s})}$$</p>
 <p>Where: <br/></p>
-<p>$I$: source intensity</p>
+<p>$\color{blue}{I}$: source intensity</p>
 
 </div>
 </div>
@@ -12016,14 +12016,14 @@ div#notebook {
 <li><p>Mirror BRDF is simple a double-delta function:</p>
 </li>
 </ul>
-<p><font color="green">$$f(\theta_i,\varphi_i;\theta_r,\varphi_r) = \rho_s \delta(\theta_i - \theta_v)\delta(\phi_i + \pi - \phi_v)$$</font></p>
+<p>$$\color{blue}{f(\theta_i,\varphi_i;\theta_r,\varphi_r) = \rho_s \delta(\theta_i - \theta_v)\delta(\phi_i + \pi - \phi_v)}$$</p>
 <ul>
 <li>Surface Radiance:
-<font color="green">$$L = I \rho_s  \delta(\theta_i - \theta_v)\delta(\varphi_i + \pi - \varphi_v)$$</font></li>
+$$\color{blue}{L = I \rho_s  \delta(\theta_i - \theta_v)\delta(\varphi_i + \pi - \varphi_v)}$$</li>
 </ul>
-<center><font color="green">$L = I \rho_s  \delta(\overrightarrow{m} = \overrightarrow{v}) $</font> or <font color="green">$I \rho_s  \delta(\overrightarrow{n} = \overrightarrow{h})$</font></center>
+<center>$\color{blue}{L = I \rho_s  \delta(\overrightarrow{m} = \overrightarrow{v}) }$ or $\color{blue}{I \rho_s  \delta(\overrightarrow{n} = \overrightarrow{h})}$</center>
 <br/>
-<center>$\overrightarrow{h}$ is the "half angle"</center>
+<center>$\color{blue}{\overrightarrow{h}}$ is the "half angle"</center>
 </div>
 </div>
 </div>
@@ -12503,10 +12503,10 @@ div#notebook {
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="Quiz-Reflectence-vs-Irradiance-Quiz">Quiz Reflectence vs Irradiance Quiz<a class="anchor-link" href="#Quiz-Reflectence-vs-Irradiance-Quiz">&#182;</a></h2><p>$$L(x,y) = R(x,y) * E(x,y)$$</p>
+<h2 id="Quiz-Reflectence-vs-Irradiance-Quiz">Quiz Reflectence vs Irradiance Quiz<a class="anchor-link" href="#Quiz-Reflectence-vs-Irradiance-Quiz">&#182;</a></h2><p>$$\color{blue}{L(x,y) = R(x,y) * E(x,y)}$$</p>
 <p>Where:<br/>
-$R(x,y)$: surface reflectance (color, texture) <br/>
-$E(x,y)$: incoming light (brintness, angle) <br/></p>
+$\color{blue}{R(x,y)}$: surface reflectance (color, texture) <br/>
+$\color{blue}{E(x,y)}$: incoming light (brintness, angle) <br/></p>
 <p>Which vary faster or more frequently with changes in location and which one varies slower or less frequently?</p>
 <p><font color="green">surface reflectance changes more</font></p>
 
@@ -12527,7 +12527,7 @@ $I$: illuminance (strenght of light)<br/></p>
 <figure>
   <img src="imgs/ch5BL1AmbigLigRef.png" />
   <center><figcaption>Fig.13  </figcaption></center>
-</figure><p>If we combine <strong>$\theta$</strong> and <strong>$I$</strong> at a point <strong>$E(x,y)$</strong> , and have a reflectance function <strong>$R(x,y)$</strong> then:</p>
+</figure><p>If we combine <strong>$\color{blue}{\theta}$</strong> and <strong>$\color{blue}{I}$</strong> at a point <strong>$\color{blue}{E(x,y)}$</strong> , and have a reflectance function <strong>$\color{blue}{R(x,y)}$</strong> then:</p>
 <p><font color="blue">$$L(x,y) = R(x,y) * E(x,y)$$</font></p>
 
 </div>
@@ -12559,13 +12559,13 @@ $I$: illuminance (strenght of light)<br/></p>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <h2 id="Lighning-in-the-Mondrian-World">Lighning in the Mondrian World<a class="anchor-link" href="#Lighning-in-the-Mondrian-World">&#182;</a></h2><h3 id="Illumination:-slowly-varying">Illumination: slowly varying<a class="anchor-link" href="#Illumination:-slowly-varying">&#182;</a></h3><p><font color="blue">$$L(x,y) = R(x,y) * E(x,y)$$</font></p>
-<p>Formally, we assume that illuminance, <strong><em>E</em></strong>, is low frequency
+<p>Formally, we assume that illuminance, <strong><em>$\color{blue}{E}$</em></strong>, is low frequency
 <br />
 <br /></p>
 <figure>
   <img src="imgs/ch5BL1LigMonWor.png" />
   <center><figcaption>Fig.15(a) smooth illuminance  </figcaption></center>
-</figure><p>Reflectance, <strong><em>R</em></strong>, is constant over patches separated by edges.
+</figure><p>Reflectance, <strong><em>$\color{blue}{R}$</em></strong>, is constant over patches separated by edges.
 <br />
 <br /></p>
 <figure>
@@ -12999,16 +12999,16 @@ $I$: illuminance (strenght of light)<br/></p>
 <li>Let's assume we have a surface <font color="blue">$z(x,y)$</font></li>
 <li>We can define the following</li>
 </ul>
-<center>$-\frac{\partial z}{\partial x}$ = <font color="blue">$p$</font>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;$-\frac{\partial z}{\partial y}$ = <font color="blue">$q$</font></center><p><br /></p>
+<center>$\color{blue}{-\frac{\partial z}{\partial x}}$ = $\color{blue}{p}$&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;$\color{blue}{-\frac{\partial z}{\partial y}}$ = $\color{blue}{q}$</center><p><br /></p>
 <figure>
   <img src="imgs/ch5CL1SurNor.png" />
     <img src="imgs/ch5CL1SurNor2.png" />
   <center><figcaption>Fig.20 </figcaption></center>
 </figure><p>Suppose we have a point on the surface. We can define two tangents: <br/>
 <br/></p>
-<center>$t_x = (1,0,-p)^T$ and $t_y = (0,1,-q)^T$</center><p>If we want a unit normal, we take <br/><br/></p>
+<center>$\color{blue}{t_x = (1,0,-p)^T}$ and $\color{blue}{t_y = (0,1,-q)^T}$</center><p>If we want a unit normal, we take <br/><br/></p>
 <center>
-$n = \frac{N}{||N||} = \frac{t_x\times t_y}{||t_x\times t_y||}=$ <font color="blue">$\frac{1}{\sqrt{p^2+q^2+1}}(p,q,1)^T$</font>
+$\color{blue}{n = \frac{N}{||N||} = \frac{t_x\times t_y}{||t_x\times t_y||}=}$ <font color="blue">$\color{blue}{\frac{1}{\sqrt{p^2+q^2+1}}(p,q,1)^T}$</font>
 </center>
 </div>
 </div>
@@ -13230,14 +13230,14 @@ Unit source vector: <br/></p>
 </ul>
 <p>Image brighness:</p>
 <ul>
-<li>$I = \rho \cdot k \cdot cos\theta_i = \rho \cdot k(n\cdot s)$ <br/>
-let $\rho \cdot k = 1$ then $I = cos\theta_i = n\cdot s$</li>
+<li>$\color{blue}{I = \rho \cdot k \cdot cos\theta_i = \rho \cdot k(n\cdot s)}$ <br/>
+let $\color{blue}{\rho \cdot k = 1}$ then $\color{blue}{I = cos\theta_i = n\cdot s}$</li>
 </ul>
 <p><br /></p>
 <figure>
     <img src="imgs/ch5CL1LamCas.png" />
   <center><figcaption>Fig.24(a) Lambertian Case </figcaption></center>
-</figure><p>$$I = cos\theta_i = n \cdot s = \frac{pp_S + qq_S + 1}{\sqrt{p^2 + q^2 + 1}\sqrt{p_S^2+q_S^2+1}} =R(p,q)$$</p>
+</figure><p>$$\color{blue}{I = cos\theta_i = n \cdot s = \frac{pp_S + qq_S + 1}{\sqrt{p^2 + q^2 + 1}\sqrt{p_S^2+q_S^2+1}} =R(p,q)}$$</p>
 <p>$R(p,q)$: Reflectance Map (Lambertian)</p>
 <p><br /></p>
 <figure>
@@ -13370,30 +13370,30 @@ let $\rho \cdot k = 1$ then $I = cos\theta_i = n\cdot s$</li>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <h2 id="Solving-the-Equations">Solving the Equations<a class="anchor-link" href="#Solving-the-Equations">&#182;</a></h2><h3 id="Photmetric-stereo">Photmetric stereo<a class="anchor-link" href="#Photmetric-stereo">&#182;</a></h3><p>Image brightness:</p>
-<p>$$I = \rho \cdot k \cdot cos\theta_i = \rho n \cdot s$$</p>
+<p>$$\color{blue}{I = \rho \cdot k \cdot cos\theta_i = \rho n \cdot s}$$</p>
 <p>Where $(k = 1)$</p>
-<p>$$I_1 = \rho n \cdot s_1$$
-$$I_2 = \rho n \cdot s_2$$
-$$I_3 = \rho n \cdot s_3$$</p>
+<p>$$\color{blue}{I_1 = \rho n \cdot s_1}$$
+$$\color{blue}{I_2 = \rho n \cdot s_2}$$
+$$\color{blue}{I_3 = \rho n \cdot s_3}$$</p>
 <p>Write this as a matrix equation:</p>
-<p>$$\begin{bmatrix}I_1\\ I_2\\ I_2\end{bmatrix} = \rho \begin{bmatrix}S_1^T\\ S_2^T\\ S_2^T\end{bmatrix}n$$</p>
+<p>$$\color{blue}{\begin{bmatrix}I_1\\ I_2\\ I_2\end{bmatrix} = \rho \begin{bmatrix}S_1^T\\ S_2^T\\ S_2^T\end{bmatrix}n}$$</p>
 <p><br /></p>
 <figure>
     <img src="imgs/ch5CL1PhoSte4.png" />
   <center><figcaption>Fig.27  </figcaption></center>
-</figure><p>$I$ and $S$ are known<br/>
-$$\rho n = \tilde{n}$$
-$$\tilde{n} = S^{-1} I$$
-$$\rho = |\tilde{n}|$$
-$$n = \frac{\tilde{n}}{|\tilde{n}|}=\frac{\tilde{n}}{\rho}$$</p>
+</figure><p>$\color{blue}{I}$ and $\color{blue}{S}$ are known<br/>
+$$\color{blue}{\rho n = \tilde{n}}$$
+$$\color{blue}{\tilde{n} = S^{-1} I}$$
+$$\color{blue}{\rho = |\tilde{n}|}$$
+$$\color{blue}{n = \frac{\tilde{n}}{|\tilde{n}|}=\frac{\tilde{n}}{\rho}}$$</p>
 <h3 id="Adding-more-light-sources">Adding more light sources<a class="anchor-link" href="#Adding-more-light-sources">&#182;</a></h3><p>Get better results by using more (<strong>$M$</strong>) lights:</p>
-<p>$$\begin{bmatrix}I_1\\ . \\. \\. \\ I_M\end{bmatrix} =  \begin{bmatrix}S_1^T\\ . \\. \\. \\ S_M^T\end{bmatrix}\rho n$$</p>
+<p>$$\color{blue}{\begin{bmatrix}I_1\\ . \\. \\. \\ I_M\end{bmatrix} =  \begin{bmatrix}S_1^T\\ . \\. \\. \\ S_M^T\end{bmatrix}\rho n}$$</p>
 <p>Least squares solutions</p>
-<p>$$I = S\tilde{n}$$</p>
-<p><center>$M \times 1 = (M \times 3)(3\times1)$</center>
-$$S^TI = S^TS\tilde{n}$$
-$$\tilde{n} = (S^TS^{-1})S^TI$$</p>
-<p><center>Moore-Penrose pseudo inverse <font color="red">$min||I-S\tilde{n}||_2^2$</font></p>
+<p>$$\color{blue}{I = S\tilde{n}}$$</p>
+<p><center>$\color{blue}{M \times 1 = (M \times 3)(3\times1)}$</center>
+$$\color{blue}{S^TI = S^TS\tilde{n}}$$
+$$\color{blue}{\tilde{n} = (S^TS^{-1})S^TI}$$</p>
+<p><center>Moore-Penrose pseudo inverse <font color="red">$\color{blue}{min||I-S\tilde{n}||_2^2}$</font></p>
 
 </div>
 </div>
