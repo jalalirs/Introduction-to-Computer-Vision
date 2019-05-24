@@ -11948,14 +11948,14 @@ div#notebook {
 <figure>
     <img src="imgs/L615.png" width="400px" />
     <center><figcaption>Fig.7</figcaption></center>
-</figure><p>How to estimate pixel motion from image $I(x,y,t)$ to $I(x,y,t+1)$?</p>
+</figure><p>How to estimate pixel motion from image $\color{blue}{I(x,y,t)}$ to $\color{blue}{I(x,y,t+1)}$?</p>
 <p>-&gt; Solve pixel correspondence problem <br/></p>
 <ul>
-<li>Given a pixel in $I(x,y,t)$, look for <em>nearby</em> pixels of the <em>same color </em>in $I(x,y,t+1)$</li>
+<li>Given a pixel in $\color{blue}{I(x,y,t)}$, look for <em>nearby</em> pixels of the <em>same color </em>in $\color{blue}{I(x,y,t+1)}$</li>
 </ul>
 <p><strong>This is the optic flow problem</strong></p>
 <ul>
-<li>Color constancy: a point in $I(x,y,t)$ looks the same in $I(x',t',t+1)$ <ul>
+<li>Color constancy: a point in $\color{blue}{I(x,y,t)}$ looks the same in $\color{blue}{I(x',t',t+1)}$ <ul>
 <li>For grayscale images, this is the <strong><em>brightness constancy</em></strong></li>
 </ul>
 </li>
@@ -11974,12 +11974,12 @@ div#notebook {
     <img src="imgs/L616.png" width="400px" />
     <center><figcaption>Fig.8</figcaption></center>
 </figure><p>1) Brightness constancy constraint (equation)
-$$I(x,y,t) = I(x+u,y+v,t+1)$$
-$$0 = I(x+u,y+v,t+1)-I(x,y,t)$$</p>
+$$\color{blue}{I(x,y,t) = I(x+u,y+v,t+1)}$$
+$$\color{blue}{0 = I(x+u,y+v,t+1)-I(x,y,t)}$$</p>
 <p>2) Small motion: (u and v are less than 1 pixel, or smooth)</p>
 <p>Taylor series expansion of $I$:</p>
-<p>$$I(x+u,y+v) = I(x,y) + \frac{\partial I}{\partial x}u + \frac{\partial I}{\partial y}v + [higher\, order\, terms]$$
-$$I(x+u,y+v) \approx I(x,y) + \frac{\partial I}{\partial x}u + \frac{\partial I}{\partial y}v$$</p>
+<p>$$\color{blue}{I(x+u,y+v) = I(x,y) + \frac{\partial I}{\partial x}u + \frac{\partial I}{\partial y}v + [higher\, order\, terms]}$$
+$$\color{blue}{I(x+u,y+v) \approx I(x,y) + \frac{\partial I}{\partial x}u + \frac{\partial I}{\partial y}v}$$</p>
 
 </div>
 </div>
@@ -11988,17 +11988,17 @@ $$I(x+u,y+v) \approx I(x,y) + \frac{\partial I}{\partial x}u + \frac{\partial I}
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="Combining-these-two-equations:">Combining these two equations:<a class="anchor-link" href="#Combining-these-two-equations:">&#182;</a></h2><p>$$0 = I(x+u,y+v,t+1)-I(x,y,t)$$
-$$0 \approx I(x,y,t+1)-I_xu + I_yv - I(x,y,t)$$</p>
-<p>$I_x$: = $\frac{\partial I}{\partial x}$ for $t$ or $t+1$</p>
-<p>$$0 \approx [I(x,y,t+1)- I(x,y,t)]+I_xu + I_yv $$
-$$0 \approx I_t+I_xu + I_yv $$</p>
-<p><font color="blue">**$$I_t + \nabla I \cdot <u,v>$$**</font>
-<font color="blue">**$$\implies 0 \approx I_t + \nabla I \cdot <u,v>$$**</font>
-In the limit as $u$ and $v$ approaches zero, this becomes exact:
-<font color="blue">**$$0 = I_t + \nabla I \cdot <u,v>$$**</font></p>
+<h2 id="Combining-these-two-equations:">Combining these two equations:<a class="anchor-link" href="#Combining-these-two-equations:">&#182;</a></h2><p>$$\color{blue}{0 = I(x+u,y+v,t+1)-I(x,y,t)}$$
+$$\color{blue}{0 \approx I(x,y,t+1)-I_xu + I_yv - I(x,y,t)}$$</p>
+<p>$\color{blue}{I_x}$: = $\color{blue}{\frac{\partial I}{\partial x}}$ for $\color{blue}{t}$ or $\color{blue}{t+1}$</p>
+<p>$$\color{blue}{0 \approx [I(x,y,t+1)- I(x,y,t)]+I_xu + I_yv }$$
+$$\color{blue}{0 \approx I_t+I_xu + I_yv }$$</p>
+<p><strong>$$\color{blue}{I_t + \nabla I \cdot &lt;u,v&gt;}$$</strong>
+<strong>$$\color{blue}{\implies 0 \approx I_t + \nabla I \cdot &lt;u,v&gt;}$$</strong>
+In the limit as $\color{blue}{u}$ and $\color{blue}{v}$ approaches zero, this becomes exact:
+<strong>$$\color{blue}{0 = I_t + \nabla I \cdot &lt;u,v&gt;}$$</strong></p>
 <p>Brightness constancy constraint equation</p>
-<p><font color="blue">$$I_xu + I_yv + I_t = 0$$</font></p>
+<p>$$\color{blue}{I_xu + I_yv + I_t = 0}$$</p>
 
 </div>
 </div>
@@ -12063,20 +12063,20 @@ In the limit as $u$ and $v$ approaches zero, this becomes exact:
 <h2 id="Smooth-Optical-Flow-(Horn-and-Schunck---long-ago)">Smooth Optical Flow (Horn and Schunck - long ago)<a class="anchor-link" href="#Smooth-Optical-Flow-(Horn-and-Schunck---long-ago)">&#182;</a></h2><ul>
 <li>Formulate Error in Optical Flow Constraint:</li>
 </ul>
-<p>$$e_c = \int \int_{image} (I_xu+I_yv+I_t)^2dxdy$$</p>
+<p>$$\color{blue}{e_c = \int \int_{image} (I_xu+I_yv+I_t)^2dxdy}$$</p>
 <ul>
 <li><p>We need additional constraints (pardon the integrals)</p>
 </li>
 <li><p>Smoothness constraint: motion field tends to vary smoothly over the image</p>
 </li>
 </ul>
-<p>$$e_s= \int \int_{image} (u_x^2 + u_y^2)+(v_x^2 + v_y^2)dxdy$$</p>
+<p>$$\color{blue}{e_s= \int \int_{image} (u_x^2 + u_y^2)+(v_x^2 + v_y^2)dxdy}$$</p>
 <ul>
-<li>Penalized for changes in $u$ and $v$ over the image</li>
+<li>Penalized for changes in $\color{blue}{u}$ and $\color{blue}{v}$ over the image</li>
 </ul>
-<p>Given both terms, find $(u,v)$ at each image point that minimizes:</p>
-<p>$$e=e_s+\lambda e_c$$</p>
-<p>$\lambda$: weighting factor</p>
+<p>Given both terms, find $\color{blue}{(u,v)}$ at each image point that minimizes:</p>
+<p>$$\color{blue}{e=e_s+\lambda e_c}$$</p>
+<p>$\color{blue}{\lambda}$: weighting factor</p>
 
 </div>
 </div>
@@ -12108,31 +12108,31 @@ In the limit as $u$ and $v$ approaches zero, this becomes exact:
 <li>E.g. assume that the flow field is smooth locally</li>
 </ul>
 </li>
-<li><p>One method: pretend the pixel's neighbors have the <strong>same</strong> (u,v)</p>
+<li><p>One method: pretend the pixel's neighbors have the <strong>same</strong> $\color{blue}{(u,v)}$</p>
 <ul>
 <li>If we use a 5X5 window, that gives us 25 equations per pixel!</li>
 </ul>
 </li>
 </ul>
-<p>$$0 = I_t(p_i)+\nabla I(p_i)\cdot[u\,v]$$
+<p>$$\color{blue}{0 = I_t(p_i)+\nabla I(p_i)\cdot[u\,v]}$$
 <br/>
-$$A_{25\times2} \times d_{2\times1} = b_{25\times1}$$
+$$\color{blue}{A_{25\times2} \times d_{2\times1} = b_{25\times1}}$$
 <br/>
-$$\begin{bmatrix}I_x(p_1) &amp; I_y(p_1)\\I_x(p_2) &amp; I_y(p_2)\\.&amp;.\\.&amp;.\\.&amp;.\\I_x(p_25) &amp; I_y(p_25)\end{bmatrix}\begin{bmatrix}u\\v\end{bmatrix} = - \begin{bmatrix}I_t(p_1)\\I_t(p_2)\\.\\.\\.\\I_t(p_25)\end{bmatrix}$$</p>
+$$\color{blue}{\begin{bmatrix}I_x(p_1) &amp; I_y(p_1)\\I_x(p_2) &amp; I_y(p_2)\\.&amp;.\\.&amp;.\\.&amp;.\\I_x(p_25) &amp; I_y(p_25)\end{bmatrix}\begin{bmatrix}u\\v\end{bmatrix} = - \begin{bmatrix}I_t(p_1)\\I_t(p_2)\\.\\.\\.\\I_t(p_25)\end{bmatrix}}$$</p>
 <h3 id="Lukas-Kanade-flow">Lukas-Kanade flow<a class="anchor-link" href="#Lukas-Kanade-flow">&#182;</a></h3><p><strong>Problem</strong>: We have more equations than unknowns <br/>
-$(d = [u\, v])$ <br/></p>
+$\color{blue}{(d = [u\, v])}$ <br/></p>
 <p><strong>Solution</strong>: Least squares problem</p>
 <p>The summations are over all pixels in the $K \times K$ window</p>
-<p>$$A_{25\times2} \times d_{2\times1} = b_{25\times1} \rightarrow minimize ||Ad -b||^2$$</p>
-<p>$$(A^TA)_{2\times2} d_{2\times1} = A^Tb_{2\times1}$$</p>
-<p>$$\begin{bmatrix}\sum I_xI_x&amp;\sum I_xI_y\\\sum I_xI_y&amp;\sum I_yI_y\end{bmatrix}\begin{bmatrix}u\\v\end{bmatrix} = - \begin{bmatrix}\sum I_xI_t \\ \sum I_yI_t\end{bmatrix}$$</p>
+<p>$$\color{blue}{A_{25\times2} \times d_{2\times1} = b_{25\times1} \rightarrow minimize ||Ad -b||^2}$$</p>
+<p>$$\color{blue}{(A^TA)_{2\times2} d_{2\times1} = A^Tb_{2\times1}}$$</p>
+<p>$$\color{blue}{\begin{bmatrix}\sum I_xI_x&amp;\sum I_xI_y\\\sum I_xI_y&amp;\sum I_yI_y\end{bmatrix}\begin{bmatrix}u\\v\end{bmatrix} = - \begin{bmatrix}\sum I_xI_t \\ \sum I_yI_t\end{bmatrix}}$$</p>
 <h2 id="Aperture-Problem-and-Normal-Flow">Aperture Problem and Normal Flow<a class="anchor-link" href="#Aperture-Problem-and-Normal-Flow">&#182;</a></h2><p><br /></p>
 <figure>
     <img src="imgs/L621.png" width="400px" />
     <center><figcaption>Fig.11 </figcaption></center>
 </figure><p>The gradient constraints</p>
-<p>$$I_xu + I_yv + I_t = 0$$
-$$\nabla I \cdot \vec{U} + I_t = 0$$</p>
+<p>$$\color{blue}{I_xu + I_yv + I_t = 0}$$
+$$\color{blue}{\nabla I \cdot \vec{U} + I_t = 0}$$</p>
 
 </div>
 </div>
@@ -12149,17 +12149,17 @@ $$\nabla I \cdot \vec{U} + I_t = 0$$</p>
 <font color="pink">$$\nabla I^2 \cdot U = -I_t^2$$</font>
 <font color="green">$$\nabla I^3 \cdot U = -I_t^3$$</font></p>
 <center>etc.</center><p>When is This Solvable?</p>
-<p>$$\begin{bmatrix}\sum I_xI_x&amp;\sum I_xI_y\\\sum I_xI_y&amp;\sum I_yI_y\end{bmatrix}\begin{bmatrix}u\\v\end{bmatrix} = - \begin{bmatrix}\sum I_xI_t \\ \sum I_yI_t\end{bmatrix}$$</p>
+<p>$$\color{blue}{\begin{bmatrix}\sum I_xI_x&amp;\sum I_xI_y\\\sum I_xI_y&amp;\sum I_yI_y\end{bmatrix}\begin{bmatrix}u\\v\end{bmatrix} = - \begin{bmatrix}\sum I_xI_t \\ \sum I_yI_t\end{bmatrix}}$$</p>
 <ul>
-<li>$A^TA$ should be invertible</li>
-<li>=&gt; So $A^TA$ should be well-conditioned $-\frac{\lambda_1}{\lambda_2}$ should not be too large ($\lambda_1 $= larger eigenvalue)</li>
+<li>$\color{blue}{A^TA}$ should be invertible</li>
+<li>=&gt; So $\color{blue}{A^TA}$ should be well-conditioned $\color{blue}{-\frac{\lambda_1}{\lambda_2}}$ should not be too large ($\color{blue}{\lambda_1 }$= larger eigenvalue)</li>
 </ul>
-<h3 id="Eigenvectors-of-$A^TA$">Eigenvectors of $A^TA$<a class="anchor-link" href="#Eigenvectors-of-$A^TA$">&#182;</a></h3><p>$$A^TA = \begin{bmatrix}\sum I_xI_x&amp;\sum I_xI_y\\\sum I_xI_y&amp;\sum I_yI_y\end{bmatrix} = \sum \begin{bmatrix}I_x\\I_y\end{bmatrix} \begin{bmatrix}I_x&amp;I_y\end{bmatrix} = \sum \nabla I(\nabla I)^T$$</p>
+<h3 id="Eigenvectors-of-$A^TA$">Eigenvectors of $A^TA$<a class="anchor-link" href="#Eigenvectors-of-$A^TA$">&#182;</a></h3><p>$$\color{blue}{A^TA = \begin{bmatrix}\sum I_xI_x&amp;\sum I_xI_y\\\sum I_xI_y&amp;\sum I_yI_y\end{bmatrix} = \sum \begin{bmatrix}I_x\\I_y\end{bmatrix} \begin{bmatrix}I_x&amp;I_y\end{bmatrix} = \sum \nabla I(\nabla I)^T}$$</p>
 <ul>
-<li>Also $A^TA$ should be solvable when there is no aperture problem<ul>
+<li>Also $\color{blue}{A^TA}$ should be solvable when there is no aperture problem<ul>
 <li>Does this remind you of something???<ul>
 <li>Recall the Harris corner detector:<ul>
-<li>$M = A^TA$ is the second moment matrix</li>
+<li>$\color{blue}{M = A^TA}$ is the second moment matrix</li>
 </ul>
 </li>
 <li>The eigenvectors and eigenvalues of M relate to edge direction and magnitued</li>
@@ -12444,11 +12444,11 @@ $$\nabla I \cdot \vec{U} + I_t = 0$$</p>
 <h2 id="RGB-Version">RGB Version<a class="anchor-link" href="#RGB-Version">&#182;</a></h2><ul>
 <li>One method: pretend the pixel's neighbors have the <strong>same</strong> $(u,v)$</li>
 </ul>
-<p>$$0 = I_t(p_i)[0,1,2]+\nabla I(p_i)[0,1,2]\cdot[u\,v]$$
+<p>$$\color{blue}{0 = I_t(p_i)[0,1,2]+\nabla I(p_i)[0,1,2]\cdot[u\,v]}$$
 <br/>
-$$A_{75\times2} \times d_{2\times1} = b_{75\times1}$$
+$$\color{blue}{A_{75\times2} \times d_{2\times1} = b_{75\times1}}$$
 <br/>
-$$\begin{bmatrix}I_x(p_1)[0] &amp; I_y(p_1)[0]\\I_x(p_1)[1] &amp; I_y(p_1)[1]\\I_x(p_1)[2] &amp; I_y(p_1)[2]\\.&amp;.\\.&amp;.\\.&amp;.\\I_x(p_25)[0] &amp; I_y(p_25)[0]\\I_x(p_25)[0] &amp; I_y(p_25)[0]\\I_x(p_25)[1] &amp; I_y(p_25)[2]\end{bmatrix}\begin{bmatrix}u\\v\end{bmatrix} = - \begin{bmatrix}I_t(p_1)[0]\\I_t(p_1)[1]\\I_t(p_1)[2]\\.\\.\\.\\I_t(p_25)[0]\\I_t(p_25)[1]\\I_t(p_25)[2]\end{bmatrix}$$</p>
+$$\color{blue}{\begin{bmatrix}I_x(p_1)[0] &amp; I_y(p_1)[0]\\I_x(p_1)[1] &amp; I_y(p_1)[1]\\I_x(p_1)[2] &amp; I_y(p_1)[2]\\.&amp;.\\.&amp;.\\.&amp;.\\I_x(p_25)[0] &amp; I_y(p_25)[0]\\I_x(p_25)[0] &amp; I_y(p_25)[0]\\I_x(p_25)[1] &amp; I_y(p_25)[2]\end{bmatrix}\begin{bmatrix}u\\v\end{bmatrix} = - \begin{bmatrix}I_t(p_1)[0]\\I_t(p_1)[1]\\I_t(p_1)[2]\\.\\.\\.\\I_t(p_25)[0]\\I_t(p_25)[1]\\I_t(p_25)[2]\end{bmatrix}}$$</p>
 <p><em>Note that **</em>RGB<em>** alone at a pixel is not enough to disambiguate because R,G &amp; B are correlated. Just provides better gradient</em></p>
 
 </div>
@@ -12799,16 +12799,16 @@ $$\begin{bmatrix}I_x(p_1)[0] &amp; I_y(p_1)[0]\\I_x(p_1)[1] &amp; I_y(p_1)[1]\\I
     <center><figcaption>Fig.21(a)</figcaption></center>
 </figure><h3 id="Hierarchical-LK">Hierarchical LK<a class="anchor-link" href="#Hierarchical-LK">&#182;</a></h3><ol>
 <li>Compute Iterative LK at level K</li>
-<li>Initialize $u_{K+1}, v_{K+1} = 0$ at size of level $K+1$</li>
-<li><p>For each level $i$ from $K$ to 0</p>
+<li>Initialize $\color{blue}{u_{K+1}, v_{K+1} = 0}$ at size of level $\color{blue}{K+1}$</li>
+<li><p>For each level $\color{blue}{i}$ from $\color{blue}{K}$ to 0</p>
 <ul>
-<li>Upsample (EXPAND) $u_{i+1},v_{i+1}$ to create $u_i^p,v_i^p$ flow fields of now twice resolution as level $i+1$</li>
-<li>Multiply $u_i^p,v_i^p$ by 2 to get predicted flow</li>
-<li>Warp level $i$ Gaussian version of $I_2$ according to predicted flow to creae I_2'</li>
-<li><p>Apply LK between $I_2'$ and level $i$ Gaussian version of $I_1$ to get $u_i^\delta, v_i^\delta$ (the correction in flow)<br />
-Add corrections to obtain the flow $u_i,v_i$ at $i^{th}$ level, i.e.,</p>
-<p>$$u_i = u_i^p + u_i^\delta$$
-$$v_i = v_i^p + v_i^\delta$$</p>
+<li>Upsample (EXPAND) $\color{blue}{u_{i+1},v_{i+1}}$ to create $\color{blue}{u_i^p,v_i^p}$ flow fields of now twice resolution as level $\color{blue}{i+1}$</li>
+<li>Multiply $\color{blue}{u_i^p,v_i^p}$ by 2 to get predicted flow</li>
+<li>Warp level $\color{blue}{i}$ Gaussian version of $\color{blue}{I_2}$ according to predicted flow to create $\color{blue}{I'_2}$</li>
+<li><p>Apply LK between $\color{blue}{I_2'}$ and level $\color{blue}{i}$ Gaussian version of $I_1$ to get $\color{blue}{u_i^\delta, v_i^\delta}$ (the correction in flow)<br />
+Add corrections to obtain the flow $\color{blue}{u_i,v_i}$ at $\color{blue}{i^{th}}$ level, i.e.,</p>
+<p>$$\color{blue}{u_i = u_i^p + u_i^\delta}$$
+$$\color{blue}{v_i = v_i^p + v_i^\delta}$$</p>
 </li>
 </ul>
 </li>
@@ -13156,11 +13156,11 @@ $$v_i = v_i^p + v_i^\delta$$</p>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <h2 id="Full-motion-model">Full motion model<a class="anchor-link" href="#Full-motion-model">&#182;</a></h2><p>From physics or elsewhere:</p>
-<p>$$V = \Omega \times R = T$$
-$$\begin{bmatrix}V_X\\V_Y\\V_Z\end{bmatrix}= \begin{bmatrix}0&amp;-\omega_Z&amp;\omega_Y\\\omega_Z&amp;0&amp;-\omega_X\\-\omega_Y&amp;\omega_X&amp;0\end{bmatrix} \begin{bmatrix}X\\Y\\Z\end{bmatrix} + \begin{bmatrix}V_{T_X}\\V_{T_Y}\\V_{T_Z}\end{bmatrix}$$</p>
-<p>$\begin{bmatrix}V_X\\V_Y\\V_Z\end{bmatrix}$ velocity vector<br/><br/>
-$\begin{bmatrix}V_{T_X}\\V_{T_Y}\\V_{T_Z}\end{bmatrix}$ Translational Component of Velocity<br/><br/>
-$\begin{bmatrix}\omega_X\\\omega_Y\\\omega_Z\end{bmatrix}$ Angular Velocity<br/></p>
+<p>$$\color{blue}{V = \Omega \times R = T}$$
+$$\color{blue}{\begin{bmatrix}V_X\\V_Y\\V_Z\end{bmatrix}= \begin{bmatrix}0&amp;-\omega_Z&amp;\omega_Y\\\omega_Z&amp;0&amp;-\omega_X\\-\omega_Y&amp;\omega_X&amp;0\end{bmatrix} \begin{bmatrix}X\\Y\\Z\end{bmatrix} + \begin{bmatrix}V_{T_X}\\V_{T_Y}\\V_{T_Z}\end{bmatrix}}$$</p>
+<p>$\color{blue}{\begin{bmatrix}V_X\\V_Y\\V_Z\end{bmatrix}}$ velocity vector<br/><br/>
+$\color{blue}{\begin{bmatrix}V_{T_X}\\V_{T_Y}\\V_{T_Z}\end{bmatrix}}$ Translational Component of Velocity<br/><br/>
+$\color{blue}{\begin{bmatrix}\omega_X\\\omega_Y\\\omega_Z\end{bmatrix}}$ Angular Velocity<br/></p>
 
 </div>
 </div>
@@ -13169,14 +13169,14 @@ $\begin{bmatrix}\omega_X\\\omega_Y\\\omega_Z\end{bmatrix}$ Angular Velocity<br/>
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="General-Motion">General Motion<a class="anchor-link" href="#General-Motion">&#182;</a></h2><p>$$x = f \frac{X}{Z}$$
-$$y = f \frac{Y}{Z}$$</p>
-<p>$$u = v_x = f\frac{ZV_X-XV_Z}{Z^2} = f\frac{V_X}{Z}-\left(f\frac{X}{Z}\right)\frac{V_Z}{Z}= f\frac{V_X}{Z}-x\frac{V_Z}{Z}$$</p>
-<p>$$v = v_y = f\frac{ZV_Y-YV_Z}{Z^2} = f\frac{V_Y}{Z}-\left(f\frac{Y}{Z}\right)\frac{V_Z}{Z}= f\frac{V_Y}{Z}-y\frac{V_Z}{Z}$$</p>
-<p>$$\begin{bmatrix}u(x,y)\\v(x,y)\end{bmatrix} = \frac{1}{Z(x,y)} A(x,y)T + B(x,y)\Omega$$</p>
+<h2 id="General-Motion">General Motion<a class="anchor-link" href="#General-Motion">&#182;</a></h2><p>$$\color{blue}{x = f \frac{X}{Z}}$$
+$$\color{blue}{y = f \frac{Y}{Z}}$$</p>
+<p>$$\color{blue}{u = v_x = f\frac{ZV_X-XV_Z}{Z^2} = f\frac{V_X}{Z}-\left(f\frac{X}{Z}\right)\frac{V_Z}{Z}= f\frac{V_X}{Z}-x\frac{V_Z}{Z}}$$</p>
+<p>$$\color{blue}{v = v_y = f\frac{ZV_Y-YV_Z}{Z^2} = f\frac{V_Y}{Z}-\left(f\frac{Y}{Z}\right)\frac{V_Z}{Z}= f\frac{V_Y}{Z}-y\frac{V_Z}{Z}}$$</p>
+<p>$$\color{blue}{\begin{bmatrix}u(x,y)\\v(x,y)\end{bmatrix} = \frac{1}{Z(x,y)} A(x,y)T + B(x,y)\Omega}$$</p>
 <p>Where $T$ is the translation vector, $\Omega$ is rotation</p>
-<p>$$A(x,y) = \begin{bmatrix}-f&amp;0&amp;x\\0&amp;-f&amp;y\end{bmatrix}$$</p>
-<p>$$B(x,y) = \begin{bmatrix}\frac{xy}{f}&amp;\frac{-(f+x^2)}{f} &amp; y\\\frac{f+y^2}{f}&amp;\frac{-(xy)}{f} &amp; -x\end{bmatrix}$$</p>
+<p>$$\color{blue}{A(x,y) = \begin{bmatrix}-f&amp;0&amp;x\\0&amp;-f&amp;y\end{bmatrix}}$$</p>
+<p>$$\color{blue}{B(x,y) = \begin{bmatrix}\frac{xy}{f}&amp;\frac{-(f+x^2)}{f} &amp; y\\\frac{f+y^2}{f}&amp;\frac{-(xy)}{f} &amp; -x\end{bmatrix}}$$</p>
 <p><strong>Why the Z(x,y) is only in the translation component?</strong> <br/>
 because it only matters when the image plane is moving. When the image plane is rotating the depth doesn't matter.</p>
 <p><br/></p>
@@ -13191,11 +13191,11 @@ because it only matters when the image plane is moving. When the image plane is 
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="Motion-of-a-Plane">Motion of a Plane<a class="anchor-link" href="#Motion-of-a-Plane">&#182;</a></h2><h3 id="If-a-plane-and-perspective">If a plane and perspective<a class="anchor-link" href="#If-a-plane-and-perspective">&#182;</a></h3><p>$$aX + bY + cZ + d = 0$$</p>
-<p>$$u(x,y) = a_1 + a_2x + a_3y + a_7x^2 + a_8xy$$
-$$v(x,y) = a_4 + a_5x + a_6y + a_7xy + a_8y^2$$</p>
-<h3 id="If-a-plane-and-orthographic...">If a plane and orthographic...<a class="anchor-link" href="#If-a-plane-and-orthographic...">&#182;</a></h3><p>$$u(x,y) = a_1 + a_2x + a_3y $$
-$$v(x,y) = a_4 + a_5x + a_6y $$
+<h2 id="Motion-of-a-Plane">Motion of a Plane<a class="anchor-link" href="#Motion-of-a-Plane">&#182;</a></h2><h3 id="If-a-plane-and-perspective">If a plane and perspective<a class="anchor-link" href="#If-a-plane-and-perspective">&#182;</a></h3><p>$$\color{blue}{aX + bY + cZ + d = 0}$$</p>
+<p>$$\color{blue}{u(x,y) = a_1 + a_2x + a_3y + a_7x^2 + a_8xy}$$
+$$\color{blue}{v(x,y) = a_4 + a_5x + a_6y + a_7xy + a_8y^2}$$</p>
+<h3 id="If-a-plane-and-orthographic...">If a plane and orthographic...<a class="anchor-link" href="#If-a-plane-and-orthographic...">&#182;</a></h3><p>$$\color{blue}{u(x,y) = a_1 + a_2x + a_3y }$$
+$$\color{blue}{v(x,y) = a_4 + a_5x + a_6y }$$
 <strong><center><font color="red">Affine</font></center></strong></p>
 
 </div>
@@ -13209,24 +13209,24 @@ $$v(x,y) = a_4 + a_5x + a_6y $$
 <figure>
     <img src="imgs/L649.png" width="200px" />
     <center><figcaption>Fig.26(a): Affine transformation</figcaption></center>
-</figure><p>$$u(x,y) = a_1 + a_2x + a_3y $$
-$$v(x,y) = a_4 + a_5x + a_6y $$</p>
+</figure><p>$$\color{blue}{u(x,y) = a_1 + a_2x + a_3y }$$
+$$\color{blue}{v(x,y) = a_4 + a_5x + a_6y }$$</p>
 <p>Substituting into the brightness constancy equation:</p>
-<p>$$I_x\cdot u + I_y\cdot v + I_t \approx 0$$</p>
-<p>$$I_x(a_1+a_2x+a_3y) + I_y(a_4+a_5x+a_6y) + I_t \approx 0$$</p>
+<p>$$\color{blue}{I_x\cdot u + I_y\cdot v + I_t \approx 0}$$</p>
+<p>$$\color{blue}{I_x(a_1+a_2x+a_3y) + I_y(a_4+a_5x+a_6y) + I_t \approx 0}$$</p>
 <ul>
 <li>Each pixel provides 1 linear constraint in 6 unknowns</li>
 <li>Least squares minimization:</li>
 </ul>
-<p>$$Err(\vec{a}) = \sum[I_x(a_1+a_2x+a_3y) + I_y(a_4+a_5x+a_6y) + I_t]^2$$</p>
+<p>$$\color{blue}{Err(\vec{a}) = \sum[I_x(a_1+a_2x+a_3y) + I_y(a_4+a_5x+a_6y) + I_t]^2}$$</p>
 <ul>
 <li><p>Can sum gradients over window or entire image:
-$$Err(\vec{a}) = \sum[I_x(a_1+a_2x+a_3y) + I_y(a_4+a_5x+a_6y) + I_t]^2($$</p>
+$$\color{blue}{Err(\vec{a}) = \sum[I_x(a_1+a_2x+a_3y) + I_y(a_4+a_5x+a_6y) + I_t]^2}$$</p>
 </li>
 <li><p>Minimize squared error (robustly)</p>
 </li>
 </ul>
-<p>$$\begin{bmatrix}
+<p>$$\color{blue}{\begin{bmatrix}
 I_x&amp;I_xX_1&amp;I_xy_1&amp;I_y&amp;I_yx_1&amp;I_yy_1\\
 I_x&amp;I_xX_2&amp;I_xy_2&amp;I_y&amp;I_yx_2&amp;I_yy_2\\
 .\\
@@ -13238,7 +13238,7 @@ I_x&amp;I_xX_n&amp;I_xy_n&amp;I_y&amp;I_yx_n&amp;I_yy_n\\
 \begin{bmatrix}a_1\\a_2\\a_3\\a_4\\a_5\\a_6\end{bmatrix}
 = - 
 \begin{bmatrix}I_t^1\\I_t^1\\.\\.\\.\\I_t^n\end{bmatrix}
-$$</p>
+}$$</p>
 <h3 id="Hierarchical-model-based-flow">Hierarchical model-based flow<a class="anchor-link" href="#Hierarchical-model-based-flow">&#182;</a></h3><p><br/></p>
 <figure>
     <img src="imgs/L650.png" width="500px" />
@@ -13259,8 +13259,8 @@ $$</p>
     <img src="imgs/L652.png" width="500px" />
     <center><figcaption>Fig.27(a): J.Wang and E. Adelson Layered Representation for Motion Analysis CVPR 1993</figcaption></center>
 </figure><p><center>Local flow estimates</center>
-$$u(x,y) = a_1 + a_2x + a_3y $$
-$$v(x,y) = a_4 + a_5x + a_6y $$</p>
+$$\color{blue}{u(x,y) = a_1 + a_2x + a_3y }$$
+$$\color{blue}{v(x,y) = a_4 + a_5x + a_6y }$$</p>
 <p>Equation of a plane (parameters $a_1,a_2,a_3$ can be found by least squares)</p>
 <p><br/></p>
 <figure>
